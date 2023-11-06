@@ -1,0 +1,39 @@
+question 1 : Determine the third highest salary and which employee receives it?
+
+
+SELECT * 
+FROM EMPLOYEES
+WHERE SALARY = (
+SELECT MAX(SALARY) 
+FROM EMPLOYEES
+WHERE SALARY < (
+SELECT MAX(SALARY)
+FROM EMPLOYEES WHERE SALARY < ( 
+SELECT MAX(SALARY)
+FROM EMPLOYEES
+)));
+question 2 : Determine the third lowest salary and which employee receives it?
+
+
+SELECT * 
+FROM EMPLOYEES
+WHERE SALARY = (
+SELECT min(SALARY) 
+FROM EMPLOYEES
+WHERE SALARY > (
+                    
+SELECT min(SALARY)
+FROM EMPLOYEES WHERE SALARY > ( 
+SELECT min(SALARY)
+FROM EMPLOYEES
+)));
+
+
+question 3: Which employee has been hired after Steven?
+
+SELECT *
+FROM EMPLOYEES 
+WHERE  HIRE_DATE  >  (
+SELECT HIRE_DATE
+FROM EMPLOYEES 
+WHERE FIRST_NAME = "STEVEN" AND LAST_NAME = 'KING') LIMIT 1;
