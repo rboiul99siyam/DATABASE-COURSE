@@ -1,0 +1,41 @@
+
+create table student
+(
+	
+    Name varchar(50) not null,
+    Roll char(4),
+    Marks int,
+    age int ,
+    email varchar(50),
+    address varchar(60),
+    constraint pk_role primary key(Roll),
+    constraint un_role unique(email),
+    constraint ch_role check(age > 10)
+);
+
+
+insert into student (Name,Roll,Marks,age,email,address) 
+values("a","0001",90,12,"a@gmail.com","bangladesh");
+
+
+create table liabry
+(
+	Book_Name varchar (50),
+    Hried_Roll char(4),
+    constraint pk_Book primary key(Book_Name),
+    constraint un_Hried unique(Hried_Roll),
+    foreign key (Hried_Roll) references student (Roll)
+);
+
+insert into liabry(Book_Name,Hried_Roll) values ("cse 101","0001");
+
+create table payment
+(
+	pay int not null,
+    Pay_Roll char (4),
+    foreign key (pay_Roll) references liabry (Hried_Roll)
+);
+
+insert into payment (pay,pay_Roll) values (1200,"0001");
+
+

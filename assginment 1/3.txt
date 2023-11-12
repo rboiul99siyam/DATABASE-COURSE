@@ -1,0 +1,61 @@
+create table  employed
+(
+	e_Id  char(4),
+    e_fristName varchar(50) not null,
+    e_lastName varchar(50) not null,
+    e_age int,
+    e_deper varchar(50) not null,
+    constraint e_pk primary key(e_Id),
+    constraint e_cheak check(e_age>10)
+);
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('1', 'john', 'Doe', 28, 'Seles');
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('2', 'jane', 'Smith', 32, 'Marketing');
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('3', 'Michael', 'Johnson', 35, 'Finance');
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('4', 'sarah', 'Brown', 30, 'HR');
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('5', 'William', 'Devis', 25, 'Engineering');
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('6', 'Emily', 'willson', 28, 'Seles');
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('7', 'Robert', 'Lee', 33, 'Marketing');
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('8', 'Laura', 'Hall', 29, 'Finance');
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('9', 'Thomus', 'White', 31, 'HR');
+
+insert into employed (e_Id, e_fristName, e_lastName, e_age, e_deper) 
+values ('10', 'Olivia', 'clark', 27, 'Engineering');
+
+
+select * from employed ;
+
+
+select distinct e_deper from employed;
+
+select e_fristName from employed  where e_age > 30 and e_deper = 'Marketing';
+
+
+
+select * from employed order by e_age desc;
+
+select e_lastName from employed where e_lastName like '%son%';
+
+select e_fristName from employed where e_deper = 'Engineering';
+
+
+
+
+
