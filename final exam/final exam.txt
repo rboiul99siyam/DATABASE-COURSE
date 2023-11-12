@@ -1,0 +1,61 @@
+
+
+
+
+#1.Make an ER Diagram of this Schema
+
+#2.Insert a new borrowing record for a student (e.g., StudentID 3) for a book with the most available copies.
+
+insert into borrowing(borrowid,studentid,isbn,borrowdate,duedate,returndate)
+values(1,3,'9781234567890','2023-11-1','2023-11-8','2023-11-06');
+
+select availablecopies
+from Book
+
+#3.Using Update Query, decrease the available copies of a book (e.g., ISBN '9781234567890') by 1 when a student borrows it.
+
+update book set AvailableCopies = AvailableCopies - 1
+where isbn = '9781234567890';
+
+4.Retrieve the names of students who have borrowed the most books.
+
+select s.name , max(availablecopies) as borrowingBook
+from student as s
+join borrowing as br on s.studentid = br.studentid
+join book as b on br.isbn = b.isbn
+group by s.name;
+
+5.Retrieve the books that are overdue (i.e., the return date is before the current date).
+
+select s.name
+from student as s
+join borrowing as br
+on s.studentid = br.studentid
+where br.returndate < br.duedate;
+
+#6.You want to make a mobile banking platform for sending and receiving money from your friends. Make an ERD of this system. (Keep it simple)
+
+
+#7.Explain UNION and UNION ALL set operations in MySQL
+UNION : union means ignore my duplicate values ​​using union method
+UNION ALL : union all means also selects duplicate values
+
+#8.There is a table named Employee. In that table there is a field named Salary. Determine the second lowest salary.
+
+select *
+from employees where
+salary = (select min(salary)
+from employees where salary > (select min(salary) 
+from employees)
+)
+
+
+#9.There are tables named Employee, Job History, Department.
+Use ON DELETE CASCADE on Job History for deleting Employee
+Use ON DELETE SET NULL on Employee for deleting Department
+
+
+#10. In this course, which topic you found most interesting. Explain the topic in short and why you found it most interesting? 
+In this course , I am found most interesting.
+mysql course  টা  আমার কাছে সত্যি অনেক ভালো  লেগেছে। প্রতিটি বিষয় গুলো খুব আনন্দ নিয়ে পড়েছি। এবং বিশেষ করে আমার কাছে  course এর একটা দিক আরো বেশি ভালো  লেগেছে সেটা হল mysql 
+setup vs কোড এ python দিয়েquery লেখা. যার ফলে আমরা রিয়েল প্রোজেক্ট এর একটা স্বাদ পেয়েছি।
