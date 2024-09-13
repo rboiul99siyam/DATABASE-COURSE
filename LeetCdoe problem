@@ -6,7 +6,17 @@ from Users
 where mail REGEXP  "^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode[.]com$"
 ==============================================================
 1050. Actors and Directors Who Cooperated At Least Three Times
+Answer
 SELECT actor_id , director_id FROM 
 ActorDirector Group by actor_id,director_id 
 having count(timestamp) >= 3
 ==============================================================
+1757. Recyclable and Low Fat Products
+#Answer
+SELECT product_id FROM 
+PRODUCTS 
+WHERE product_id > 0 
+GROUP BY product_id ,low_fats ,recyclable 
+HAVING low_fats = "Y"
+AND recyclable  = "Y"
+================================================================
