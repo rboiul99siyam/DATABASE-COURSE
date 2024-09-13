@@ -20,3 +20,11 @@ GROUP BY product_id ,low_fats ,recyclable
 HAVING low_fats = "Y"
 AND recyclable  = "Y"
 ================================================================
+584. Find Customer Referee
+#Answer
+SELECT NAME FROM 
+CUSTOMER 
+WHERE referee_id != 2 OR referee_id IS NULL
+================================================================
+
+
