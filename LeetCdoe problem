@@ -46,5 +46,11 @@ select unique_id , name
 from Employees as emp 
 left join EmployeeUNI  as emui
 on emp.id = emui.id
-
+============================================================
+1068. Product Sales Analysis I
+# Write your MySQL query statement below
+SELECT product_name , year, price 
+FROM Sales LEFT JOIN
+Product
+ON Sales.product_id = Product.product_id
 
