@@ -120,3 +120,14 @@ WHERE CountryCode = "USA" AND Population > 100000
 ===============================================================
 Revising the Select Query II
 SELECT NAME FROM CITY LIMIT 1,4;
+==============================================================
+Weather Observation Station 10
+
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE NOT CITY LIKE "%a" AND
+NOT CITY LIKE "%e" AND
+NOT CITY LIKE "%u" AND
+NOT CITY LIKE "%i" AND
+NOT CITY LIKE "%o"
+==========================================================
