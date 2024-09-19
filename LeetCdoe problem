@@ -131,3 +131,17 @@ NOT CITY LIKE "%u" AND
 NOT CITY LIKE "%i" AND
 NOT CITY LIKE "%o"
 ==========================================================
+The PADS
+(   
+    SELECT CONCAT(NAME , "(", UPPER(SUBSTRING(OCCUPATION,1,1)) , ")") AS SORTING
+    FROM OCCUPATIONS
+    ORDER BY NAME
+)
+UNION ALL
+
+(
+    SELECT  CONCAT("There are a total of " , COUNT(*)," ",LOWER(OCCUPATION),"s",".")AS SORTING
+    FROM OCCUPATIONS 
+    GROUP BY OCCUPATION
+)
+ORDER BY SORTING
